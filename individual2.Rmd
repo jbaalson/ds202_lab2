@@ -1,6 +1,6 @@
 ---
 title: "individual2.Rmd"
-author: "chrlwhtng"
+author: "Charlie Whiting, GitHub username: chrlwhtng"
 date: "2/5/2020"
 output: html_document
 ---
