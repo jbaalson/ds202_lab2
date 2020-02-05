@@ -1,0 +1,38 @@
+---
+title: "team"
+author: "Jacob Baalson"
+date: "2/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1.
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+length(choco$Rating)
+```
+
+There are 1852 total chocolate bars that were rated in the data set.
+
+2.
+```{r}
+barplot(table(choco$Review.Date), ylim = c(0,300), xlab = 'Years', ylab = 'Frequency', main= 'Frequency by Year')
+
+```
+
+The number of ratings increased steadily from 2006 to 2015 where it peaked. Then fell dramatically over the course of the next two years.
+
+3.
+```{r}
+countryfrequency <- data.frame(table(choco$Company.Location))
+countryfrequency[order(countryfrequency$Freq, decreasing = TRUE)[1:3], ]
+
+US <- choco[choco$Company.Location == 'U.S.A.', ]
+France <- choco[choco$Company.Location == 'France', ]
+Canada <- choco[choco$Company.Location == 'Canada', ]
+boxplot(US$Rating, France$Rating, Canada$Rating, ylim = c(0,5), names = c('US', 'France', 'Canada'), ylab = 'Rating', xlab = 'Country', main = 'Ratings of Top 3 Countries')
+```
+The U.S.A., France, and Canada have the most ratings. The "typical" rating for all of these countries is around 3.2. Canada does have the greatest Q3 with it being around 3.8 which is about 0.3 higher than the other countries Q3 marks. France has two outliers that are below the minimum whisker and the US has one outlier that is below the minimum whisker.
