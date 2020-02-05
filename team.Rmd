@@ -1,6 +1,6 @@
 ---
 title: "team"
-author: "Jacob Baalson"
+author: "Jacob Baalson, Charlie Whiting; GitHub Usernames: jbaalson, chrlwhtng"
 date: "2/5/2020"
 output: html_document
 ---
@@ -35,4 +35,35 @@ France <- choco[choco$Company.Location == 'France', ]
 Canada <- choco[choco$Company.Location == 'Canada', ]
 boxplot(US$Rating, France$Rating, Canada$Rating, ylim = c(0,5), names = c('US', 'France', 'Canada'), ylab = 'Rating', xlab = 'Country', main = 'Ratings of Top 3 Countries')
 ```
+
 The U.S.A., France, and Canada have the most ratings. The "typical" rating for all of these countries is around 3.2. Canada does have the greatest Q3 with it being around 3.8 which is about 0.3 higher than the other countries Q3 marks. France has two outliers that are below the minimum whisker and the US has one outlier that is below the minimum whisker.
+
+4.
+Question: Were certain years produce better chocolate ratings? Or were they largely the same?
+
+5.
+```{r}
+chocoSix <- choco[choco$Review.Date == 2006, ]
+chocoSeven <- choco[choco$Review.Date == 2007, ]
+chocoEight <- choco[choco$Review.Date == 2008, ]
+chocoNine <- choco[choco$Review.Date == 2009, ]
+chocoTen <- choco[choco$Review.Date == 2010, ]
+chocoEleven <- choco[choco$Review.Date == 2011, ]
+chocoTwelve <- choco[choco$Review.Date == 2012, ]
+chocoThirteen <- choco[choco$Review.Date == 2013, ]
+chocoFourteen <- choco[choco$Review.Date == 2014, ]
+chocoFifteen <- choco[choco$Review.Date == 2015, ]
+chocoSixteen <- choco[choco$Review.Date == 2016, ]
+chocoSeventeen <- choco[choco$Review.Date == 2017, ]
+
+xlabels <- c(2006:2017)
+
+boxplot(chocoSix$Rating, chocoSeven$Rating, chocoEight$Rating, chocoNine$Rating, chocoTen$Rating, chocoEleven$Rating, chocoTwelve$Rating, chocoThirteen$Rating, chocoFourteen$Rating, chocoFifteen$Rating, chocoSixteen$Rating, chocoSeventeen$Rating, names = xlabels, xlab = "Years", ylab = "Ratings", main = "Relationship Between Years and Labels")
+```
+
+The data shows that there is a lot of similarities between the years when it comes to ratings. However, in certain years, like 2010 and 2017, it does appear that the average chocolate ratings were higher than in other years. It also appears that years 2006-2009 had many fewer scores above 3 than below it. I would argue for this reason that these years were worse for chocolate than others. 
+
+6.
+The process of working with each other across different systems at the same time was very helpful. We very much liked having the ability to work together on our own devices. We switched off whose computer we worked on halfway through the "team" Markdown file. Because of this, we pushed an update to GitHub after finishing Question 3, and then again after completing Question 6. We didn't struggle with much, because we were coordinated when we edited the files.
+
+
