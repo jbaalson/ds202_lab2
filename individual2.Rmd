@@ -1,0 +1,28 @@
+---
+title: "individual2.Rmd"
+author: "chrlwhtng"
+date: "2/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+
+chocoCinco <- choco[choco$Rating == 5, ]
+length(chocoCinco)
+
+hist(choco$Rating, main = "Chocolate Rating", xlab = "Rating",)
+```
+
+There are 9 outliers in this dataset, all of which have the value of 5. The Histogram of Chocolate Rating is unimodal, with most values coming in between 3 and 4. The histogram is left-skewed.
+
+```{r}
+boxplot(choco$Cocoa.Pct~choco$Rating, xlab = "Rating", ylab = "Cocoa Pct", main = "Relationship Between Cocoa Pct. and Rating")
+```
+
+These boxplots appear to show that there isn't much of a relationship between Cocoa Pct and Rating. On the left side of the graph, while it does appear that more cocoa means lower rating, there are far less data points than there are towards the right side of the graph. This shows, that at the very least, "good" and "okay" chocolate doesn't differ much from "great" chocolate based on their cocoa percentage. 
+
