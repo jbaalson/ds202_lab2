@@ -1,0 +1,39 @@
+---
+title: "Individual1"
+author: "Jacob Baalson ; github: jbaalson"
+date: "2/5/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+```
+
+
+```{r}
+
+hist(choco$Rating, main = 'Chocolate Ratings')
+```
+
+The histogram is fairly symmetric and unimodal. There is also an outlier that is greater than the rest of the dataset. The ratings are fairly compacted and don't have much spread as the are most consistently around the 2.5 to 3.5.
+
+```{r}
+first <- choco[choco$Cocoa.Pct>= 40 & choco$Cocoa.Pct <50, ]
+second <- choco[choco$Cocoa.Pct>= 50 & choco$Cocoa.Pct <60, ]
+third <- choco[choco$Cocoa.Pct >= 60 & choco$Cocoa.Pct < 70, ]
+fourth <- choco[choco$Cocoa.Pct >= 70 & choco$Cocoa.Pct <80, ]
+fifth <- choco[choco$Cocoa.Pct >=80 & choco$Cocoa.Pct <90, ]
+sixth <- choco[choco$Cocoa.Pct >= 90 & choco$Cocoa.Pct <= 100, ]
+
+boxplot(first$Rating, second$Rating, third$Rating, fourth$Rating, fifth$Rating, sixth$Rating, names = c('40-49', '50-59'
+,'60-69', '70-79', '80-89', '90-100'), ylab= 'Ratings', xlab = 'Cocoa Percentage', main= 'Ratings by Cocoa Percentage')
+
+
+```
+
+Ratings do not depend that much on cocoa percentage of a chocolate bar as the median value for all subsets of percentages is close to 3. The cocoa percentages that did seem to do the best though was 60-69 and 70-79 as they had a higher median than all other ranges. The boxplots don't show a strong relationship between the two variables though so ratings mainly do not depend that much on cocoa percentage.
